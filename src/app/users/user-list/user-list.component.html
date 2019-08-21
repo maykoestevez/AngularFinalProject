@@ -5,11 +5,18 @@
                     Nuevo
                 </button>
         <h4 class="crud-title">Lista de usuarios</h4>
-
         <hr>
+        <div class="input-group mb-3">
+            <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Buscar usuarios" aria-label="Buscar productos" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                  <i class="material-icons">search</i>
+              </button>
+            </div>
+          </div>
     </div>
     <div class="row mt-10">
-        <div class="col-md-3 mb-3" *ngFor="let user of usersList$ |async">
+        <div class="col-md-3 mb-3" *ngFor="let user of usersList$ |async |search: searchText:'fullName'">
             <div class="card" [routerLink]="['/home/users/user',user.id]">
                 <div class="card-body">
                     <a class="action-link delete-action" (click)="setSelected(user,$event)">

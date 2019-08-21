@@ -7,9 +7,18 @@
         <h4 class="crud-title">Lista de productos</h4>
 
         <hr>
+        <div class="input-group mb-3">
+                <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                      <i class="material-icons">search</i>
+                  </button>
+                </div>
+              </div>
     </div>
     <div class="row mt-10">
-        <div class="col-md-3 mb-3" *ngFor="let product of productsList$ |async">
+       
+        <div class="col-md-3 mb-3" *ngFor="let product of productsList$ |async |search: searchText:'description'">
             <div class="card" [routerLink]="['/home/products/product',product.id]">
                 <div class="card-body">
                     <a class="action-link delete-action" (click)="setSelected(product,$event)">
