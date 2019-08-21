@@ -1,0 +1,26 @@
+<div class="container feature-container">
+    <div class="crud-header">
+            <button class="btn btn-primary float-right" [routerLink]="['/home/users/user-add']">
+                    <i class="material-icons">add</i>
+                    Nuevo
+                </button>
+        <h4 class="crud-title">Lista de usuarios</h4>
+
+        <hr>
+    </div>
+    <div class="row mt-10">
+        <div class="col-md-3 mb-3" *ngFor="let user of usersList$ |async">
+            <div class="card" [routerLink]="['/home/users/user',user.id]">
+                <div class="card-body">
+                    <a class="action-link delete-action" (click)="setSelected(user,$event)">
+                        <i class="material-icons">clear</i>
+                    </a>
+                    <h5 class="item-title">{{user.fullName}}</h5>
+                    <small class="text-muted">{{user.isAdmin?'Administrador':'Normal User'}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-delete-modal (whenHideModal)="onHideModal()" [isModalShown]="show" [message]="'Eliminar '+selectedUser.fullName+'?'" (delete)="delete()"></app-delete-modal>
+

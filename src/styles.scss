@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+// regular style toast 
+@import '~ngx-toastr/toastr';
+ 
+.toastContainer{
+    widows: 100%;
+}
+.feature-container {
+    margin-left: 300px!important;
+    padding-top: 10px;
+}
+.not-valid {
+    color: red;
+    font-size: 12px;
+}
+
+.right {
+    float: right;
+}
+
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    background-color: #f9f9f9!important;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 50px;
+    /* Set same as footer's height */
+}
+
+html {
+    height: 100%;
+}
+.material-icons{
+    vertical-align: -5px;
+}
+
+.crud-header{
+    padding-top: 15px;
+
+    .crud-title{
+        font-weight: 300;
+        color: #3F51B5;
+    }
+}
+

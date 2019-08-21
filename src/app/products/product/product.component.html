@@ -1,0 +1,61 @@
+<div class="container feature-container">
+    <div class="crud-header">
+        <h4 class="crud-title">Administración de Productos</h4>
+        <hr>
+    </div>
+
+    <form [formGroup]="productsForm">
+        <div class="form-group">
+            <label for="product-description">Descripción</label>
+            <input
+                class="form-control"
+                type="text"
+                name="description"
+                id="product-description"
+                formControlName="description"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="product-price">Price</label>
+            <input
+                class="form-control"
+                type="number"
+                name="price"
+                id="product-price"
+                formControlName="price"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="product-details">Details</label>
+            <input
+                class="form-control"
+                type="text"
+                name="details"
+                id="product-details"
+                formControlName="details"
+                required>
+        </div>
+        <div class="form-group form-check">
+            <input
+                class="form-check-input"
+                type="checkbox"
+                name="status"
+                id="product-status"
+                formControlName="status"
+                required>
+            <label
+                class="form-check-label"
+                for="product-status">
+                Activo
+            </label>
+        </div>
+
+     <button (click)="saveChanges()" class="btn btn-secondary float-right" [disabled]="productsForm.invalid">
+         <i class="material-icons">save</i>
+         Guardar Cambios
+     </button>
+
+    </form>
+</div>

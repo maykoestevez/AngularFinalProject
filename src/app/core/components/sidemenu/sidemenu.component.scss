@@ -1,0 +1,52 @@
+#side-menu {
+    width: 20%;
+    background: #002650;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    position: fixed;
+}
+
+.side-menu-content {
+    padding: 15px;
+}
+
+#side-title {
+    color: white;
+    font-size: 18px
+}
+.side-item {
+   
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.show{
+    animation: in 0.5s;
+    display: initial;
+}
+.hide{
+    animation: leave 0.5s; 
+    display: none;
+}
+
+@keyframes in{
+    0%{
+        margin-left:-100px;
+ 
+    }
+    100%{
+        margin-left:initial;
+       
+    }
+}
+@keyframes leave{
+    0%{
+        margin-left:500px;
+ 
+    }
+    100%{
+        margin-left:initial;
+       
+    }
+}

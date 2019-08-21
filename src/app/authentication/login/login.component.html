@@ -1,0 +1,46 @@
+<app-loading
+    loadingtext="Validating User..."
+    *ngIf="showLoading"></app-loading>
+    <div
+    *ngIf="!showLoading"
+    class="container">
+    <div class="card">
+            <div class="card-body">
+                    
+                    <h4 class="card-title">Inventory System</h4>
+                    <form #userForm="ngForm">
+                        <div class="form-group">
+                            <label for="userName">User Name</label>
+                            <input
+                                [(ngModel)]="user.userName"
+                                type="text"
+                                class="form-control"
+                                id="userName"
+                                required
+                                name="user"
+                                placeholder="Enter User">
+                        </div>
+                        <div class="form-group">
+                            <label for="password-user">Password</label>
+                            <input
+                                [(ngModel)]="user.password"
+                                type="password"
+                                required
+                                class="form-control"
+                                id="password-user"
+                                name="pasword"
+                                placeholder="Password">
+                        </div>
+                        <button
+                            [disabled]="userForm.invalid"
+                            id="button-login"
+                            (click)="login()"
+                            class="btn btn-primary">
+                            Login
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+          </div>
+

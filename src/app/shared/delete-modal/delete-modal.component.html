@@ -1,0 +1,32 @@
+<div
+    *ngIf="isModalShown"
+    [config]="{ show: true }"
+    (onHidden)="onHidden()"
+    bsModal
+    #modal="bs-modal"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="dialog-auto-name">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+              <p>{{message}}</p>
+              <button
+              type="button"
+              class="btn btn-default"
+              (click)="confirm()">
+              Yes
+          </button>
+          <button
+              type="button"
+              class="btn btn-primary"
+              (click)="hideModal()">
+              No
+          </button>
+          </div>
+        
+        </div>
+
+    </div>
+</div>

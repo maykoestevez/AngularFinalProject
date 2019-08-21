@@ -1,0 +1,12 @@
+@import '../../core-style.scss';
+
+.navbar a{
+    color: $menu-text-color;
+}
+.navbar-text{
+    color: $menu-text-color;
+}
+.button-menu{
+    margin-right: 10px;
+    cursor: pointer;
+}

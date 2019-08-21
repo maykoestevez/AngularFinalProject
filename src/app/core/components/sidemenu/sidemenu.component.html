@@ -1,0 +1,31 @@
+<div
+    id="side-menu"
+    [ngClass]="{'show':_showSideMenu,'hide':!_showSideMenu}">
+    <div class="side-menu-content">
+        <label id="side-title">Inventory Side Menu</label>
+        <hr>
+        <p></p>
+        <a
+            class="side-item"
+            [routerLink]="['/home/products']">
+            <i class="material-icons">store</i>
+            Product List
+        </a>
+        <p></p>
+        <a
+            class="side-item"
+            [routerLink]="['/home/users']">
+            <i class="material-icons">people</i>
+            User List
+        </a>
+        <p></p>
+        <a
+            class="side-item"
+            (click)="hideSideMenu()"
+            [routerLink]="['/authentication']">
+            <i class="material-icons">lock</i>
+            Logout
+        </a>
+    </div>
+
+</div>
