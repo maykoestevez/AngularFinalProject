@@ -22,26 +22,36 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginService.LogOut();
+    try {
+      this.loginService.LogOut();
+    } catch (error) {
+      this.toastService.error(error.message, userConstants.USERLOGIN);
+    }
+
   }
 
   async login() {
-    this.showLoading = true;
-    const resultUser = await this.loginService
-      .login(this.user.userName, this.user.password);
-    if (!resultUser) {
+    try {
+      this.showLoading = true;
+      const resultUser = await this.loginService
+        .login(this.user.userName, this.user.password);
+      if (!resultUser) {
+        this.showLoading = false;
+        this.toastService.error(userConstants.USERNOTVALID, userConstants.USERLOGIN);
+        return;
+      }
+
+      this.timer = setInterval(() => {
+        this.router.navigate(['home']);
+        this.loginService.storeUser(resultUser);
+        this.showLoading = false;
+        clearInterval(this.timer);
+      }, 2000);
+    } catch (error) {
+      this.toastService.error(error.message, userConstants.USERLOGIN);
+    } finally {
       this.showLoading = false;
-      this.toastService.error(userConstants.USERNOTVALID, userConstants.USERLOGIN);
-      return;
     }
-
-    this.timer = setInterval(() => {
-      this.router.navigate(['home']);
-      this.loginService.storeUser(resultUser);
-      this.showLoading = false;
-      clearInterval(this.timer);
-    }, 2000);
-
 
   }
 
